@@ -2,16 +2,52 @@
 
 <h1>Users: Are you a job seeker or recruiter? Doesn't matter who you are</h1>
 
+<%-# This is the home page of the Admin. From here the admin could select the type of operation he wants to perform
+
+   # recruiter.html.erb is used to create recruiter account and crjobseek.html.erb is used for Job Seeker account %>
+
 <table>
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.Name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+      <% if ((user.jobseeker==false) && (user.recruiter==false)) %>
+        <div class="AdminHomepage" align="center">
+          <h1>Welcome Admin</h1>
+          <button class="btn btn-success">
+            <%= link_to 'Edit Profile', edit_user_path, :style =>'color:#FFFFFF;' %>
+          </button>
+            <button class="btn btn-success">
+              <%= link_to 'Create Job Seeker', new_user_path, :style =>'color:#FFFFFF;' %>
+            </button>
+          <button class="btn btn-success">
+            <%= link_to 'Create Company', new_company_path, :style =>'color:#FFFFFF;' %>
+          </button>
+          <button class="btn btn-success">
+            <%= link_to 'View Users', users_path, :style =>'color:#FFFFFF;' %>
+          </button>
+          <button class="btn btn-success">
+            <%= link_to 'View Company', companies_path, :style =>'color:#FFFFFF;' %>
+          </button>
+          <button class="btn btn-success">
+            <%= link_to 'View Jobs', jobs_path, :style =>'color:#FFFFFF;' %>
+          </button>
+          <button class="btn btn-success">
+            <%= link_to 'View Applications', applications_path, :style =>'color:#FFFFFF;' %>
+          </button>
+        <%-#  <button class="btn btn-success"><%= link_to 'Delete Details', delete_details :style =>'color:#FFFFFF;' %><%#-</button>%>
+        </div>
+      <% end %>
+
+
+      <% if (user.jobseeker==true) %>
+          <tr>
+            <td><%= user.Name %></td>
+            <td><%= link_to 'Show', user %></td>
+            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
