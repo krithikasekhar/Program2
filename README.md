@@ -1,24 +1,19 @@
 # README
 
 This README would normally document whatever steps are necessary to get the
-application up and running.
+application up and running.  
 
-Things you may want to cover:
+## Link to Deployed Application  
+https://evening-hamlet-77985.herokuapp.com  
 
-* Ruby version
+## Credentials for pre-configured Admin  
+email: admin@ncsu.edu  
+password: admin123  
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Instructions to test  
+-> The deployed link leads to the home page which has three links for admin login, user login and sign up.  
+-> Pre-configured admin can login using the credentials given above.   
+-> A first time user can sign up by entering their details.   
+-> After logging in, admin can either create a job-seeker, recruiter or company. Admin can also view the list of all users, companies, jobs and applications.    
+-> A user can see his name and from there go on seeing his profile(show link), edit profile(edit link) and delete profile(destroy link).  
+-> If a job seeker goes to his profile, he can view the list of his applications and other details. 
