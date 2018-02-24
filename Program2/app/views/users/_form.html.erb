@@ -1,4 +1,5 @@
-<%= form_with(model: user, local: true) do |form| %>
+<%= form_with(model: user, local: true) do |f| %>
+  <h1>Sign up</h1>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,42 +12,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :Name %>
-    <%= form.text_field :Name, id: :user_Name %>
-  </div>
+    <div class="field">
+      <%= f.label :Name %>
+      <%= f.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email_id %>
-    <%= form.text_field :email_id, id: :user_email_id %>
-  </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password, id: :user_password %>
-  </div>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :user_phone %>
-  </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :companies_id %>
-    <%= form.text_field :companies_id, id: :user_companies_id %>
-  </div>
+    <div class="field">
+      <%= f.label :recruiter %>
+      <%= f.text_field :recruiter %>
+    </div>
 
-  <div class="field">
-    <%= form.label :recruiter %>
-    <%= form.text_field :recruiter, id: :user_recruiter %>
-  </div>
+    <div class="field">
+      <%= f.label :jobseeker %>
+      <%= f.text_field :jobseeker %>
+    </div>
 
-  <div class="field">
-    <%= form.label :jobseeker %>
-    <%= form.text_field :jobseeker, id: :user_jobseeker %>
-  </div>
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'sessions/new'
+
+  #devise_for :users, :controllers => { registrations: 'registrations' }
   resources :applications
   resources :jobs
   resources :companies
   resources :users
-  root'users#index'
+  resources :welcome
+  root'welcome#index'
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
   resources :users do
     resources :applications
   end

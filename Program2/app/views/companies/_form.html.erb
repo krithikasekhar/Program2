@@ -1,4 +1,4 @@
-<%= form_with(model: company, local: true) do |form| %>
+<%= form_with(model: company, local: true) do |f| %>
   <% if company.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
@@ -11,12 +11,50 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :Name %>
-    <%= form.text_field :Name, id: :company_Name %>
-  </div>
+  <%-# This file is used to create companies for the Job and Applicants recruitment system. The control is transferred from
+     # Admin Home page %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  <h1> Create a Company</h1>
+    <div class="CreateCompany" align="center">
+      <div align="center">
+        <div class="field">
+          <%= f.label :CompanyID %><br />
+          <%= f.text_field :company_id %>
+        </div>
+        <div class="field">
+          <%= f.label :Name %><br />
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :Website %><br />
+          <%= f.text_field :website%>
+        </div>
+        <div class="field">
+          <%= f.label :Headquarters %><br />
+          <%= f.text_field :hq%>
+        </div>
+        <div class="field">
+          <%= f.label :Size %><br />
+          <%= f.text_field :size %>
+        </div>
+        <div class="field">
+          <%= f.label :Founded %><br />
+          <%= f.text_field :founded  %>
+        </div>
+        <div class="field">
+          <%= f.label :Industry %><br />
+          <%= f.text_field :industry %>
+        </div>
+        <div class="field">
+          <%= f.label :Revenue %><br />
+          <%= f.text_field :revenue %>
+        </div>
+        <div class="field">
+          <%= f.label :Synopsis %><br />
+          <%= f.text_field :synopsis %>
+        </div>
+      </div>
+    </div>
+    <%= f.submit %>
+  <% end %>
+

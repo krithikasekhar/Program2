@@ -1,7 +1,7 @@
 class AddMoreColumnsToUser < ActiveRecord::Migration[5.1]
   def change
     change_table :users do |t|
-      t.string :email_id , primary: true, unique: true, null:false
+      t.string :email , primary: true, unique: true
       t.string :password , null:false
       t.string :phone
       t.references :companies
